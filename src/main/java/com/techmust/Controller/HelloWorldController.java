@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.controller;
+package com.techmust.Controller;
 
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/")
-public class HelloWorldController {
+public class HelloWorldController 
+{
 
     private static final String MESSAGE_FORMAT = "Hello %s!";
 
