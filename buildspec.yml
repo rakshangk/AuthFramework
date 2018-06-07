@@ -24,9 +24,3 @@ artifacts:
     - 'scripts/start_server'
     - 'scripts/install_dependencies'
     - 'target/AuthFramework.war'
-.
-
-
-
-
-
