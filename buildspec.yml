@@ -23,4 +23,10 @@ artifacts:
     - 'appspec.yml'
     - 'scripts/start_server'
     - 'scripts/install_dependencies'
-    - 'target/ROOT.war'
+    - 'target/AuthFramework.war'
+.
+
+
+
+
+
