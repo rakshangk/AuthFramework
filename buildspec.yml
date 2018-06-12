@@ -23,4 +23,4 @@ artifacts:
     - 'appspec.yml'
     - 'scripts/start_server'
     - 'scripts/install_dependencies'
-    - 'target/root.war'
+    - 'target/ROOT.war'
