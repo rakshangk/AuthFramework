@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: target/ROOT.war
+  - source: target/AuthFramework.war
     destination: /home/ec2-user/javaapp
 hooks:
   AfterInstall:
@@ -10,4 +10,4 @@ hooks:
       runas: root
     - location: scripts/start_server
       timeout: 300
-      runas: root
+      runas: AuthFramework
