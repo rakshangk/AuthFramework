@@ -2,18 +2,22 @@ package com.techmust.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Basic Spring web service controller that handles all GET requests.
- */
-@RestController
+import com.techmust.constants.LoginConstants;
+import com.techmust.response.LoginResponse;
+
+@RestController("loginController")
 public class LoginController 
-{
-       @RequestMapping(value="/signIn", method = RequestMethod.POST)
-        public String authenticate(@RequestParam(value = "username") String strUserName, @RequestParam(value = "password") String strPassword) 
-        {
-            return "User: Successfully logged in!";
-        }
+{		 
+    @RequestMapping(value="/signIn",method = RequestMethod.POST,
+			produces = {"application/json"})
+	public @ResponseBody LoginResponse authenticate() 
+	{
+    	LoginResponse oLoginResponse = new LoginResponse();
+    	oLoginResponse.setM_bIsSuccess(true);
+    	oLoginResponse.setStrResponseMessage(LoginConstants.m_strLoginSuccessMessage);
+	    return oLoginResponse;
+	}
 }
