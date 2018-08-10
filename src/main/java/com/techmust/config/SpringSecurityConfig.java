@@ -24,17 +24,22 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 	@Override
 	 protected void configure(HttpSecurity oHttpSecurity) throws Exception
     {
-		oHttpSecurity.httpBasic().and().authorizeRequests()
-        .antMatchers("/signIn", "/user").hasRole("USER").and()
-        .sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .sessionFixation().none().and()
-        .csrf().disable().headers().frameOptions().disable();
-        // Config Remember Me.
-		oHttpSecurity.authorizeRequests().and() 
-        .rememberMe().tokenRepository(this.persistentTokenRepository())
-        .tokenValiditySeconds(1 * 24 * 60 * 60); // 24h
-    } 
+		/*oHttpSecurity.authorizeRequests()
+        .antMatchers("/").permitAll()
+        .anyRequest().authenticated()
+        .and()
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).sessionFixation().none()
+        .and()
+        .csrf();   */   
+		
+		oHttpSecurity.authorizeRequests()
+        .antMatchers("/").permitAll()
+        .anyRequest().authenticated()
+        .and()
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).sessionFixation().none()
+        .and()
+        .csrf().disable().headers().frameOptions().disable().and().httpBasic();
+    }
 
 	@Bean
 	public PersistentTokenRepository persistentTokenRepository()

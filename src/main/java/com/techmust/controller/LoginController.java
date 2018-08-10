@@ -20,4 +20,14 @@ public class LoginController
     	oLoginResponse.setStrResponseMessage(LoginConstants.m_strLoginSuccessMessage);
 	    return oLoginResponse;
 	}
+    
+    @RequestMapping(value="/users",method = RequestMethod.POST,
+			produces = {"application/json"})
+	public @ResponseBody LoginResponse users() 
+	{
+    	LoginResponse oLoginResponse = new LoginResponse();
+    	oLoginResponse.setM_bIsSuccess(true);
+    	oLoginResponse.setStrResponseMessage("user method");
+	    return oLoginResponse;
+	}
 }
